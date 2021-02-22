@@ -17,22 +17,32 @@ const TaskTable = ({setTasks, tasks,setDeleted}) => {
     const [currentRow, setCurrentRow] = useState(null)
     const [currentlyEditing, setCurrentlyEditing] = useState(null)
     const [editingText, setEditingText] = useState("")
+    const [editingPriority, setEditingPriority] = useState("")
     const removeItem = (id) => {
         const res = tasks.filter(task => task.id !== id)
         setTasks(res)
     }   
     
-    const saveEdit = (id) => {
+    const saveEdit = (row) => {
+      /*
+        editingText === "" ? 
+          setEditingText(row.task) : <></>
+        */
+          
         const editedTasks = [...tasks].map((task) => {
-            if(task.id === id) {
+            if(task.id === row.id) {
                 task.task = editingText
             }
             return task
         })
-        console.log(editingText)
+        
+        editingPriority === "" ? 
+           row.priority = row.priority : row.priority = editingPriority
+       
+       console.log(row.task)
        setTasks(editedTasks)
        setCurrentlyEditing(null)
-       setEditingText("")
+       setEditingText(null)
     }
     const columns = [
         {
@@ -52,7 +62,7 @@ const TaskTable = ({setTasks, tasks,setDeleted}) => {
       <table style = {{padding: "10px",color:"white"}} size = "medium"className="task-list" aria-label="caption table">
         <thead  style = {{color:"white"}} className = "header-row">
           <tr style = {{color:"white"}} >
-            <th style = {{minWidth:"200px"}}><strong>Task</strong></th>
+            <th style = {{overflowX: "auto",minWidth:"200px"}}><strong>Task</strong></th>
             <th style = {{minWidth: "200px"}} ><strong>Priority</strong></th>
           
           </tr>
@@ -60,13 +70,30 @@ const TaskTable = ({setTasks, tasks,setDeleted}) => {
         <tbody style = {{border:"none"}}>
           {tasks.map((row) => (
             <tr key={row.id}>
-              <td style = {{ overflowX :"auto", minWidth: "50px", maxWidth: "50px"}}>{ currentlyEditing === row.id ?
-                   <Input className = "table-input" type = "text" onChange= {(e) => setEditingText(e.target.value)} />: row.task}</td>
-              <td style = {{minWidth: "50px", maxWidth: "60px",xOverflow :"auto"}}>{row.priority}</td>
+             
+              { currentlyEditing === row.id ?
+                   
+                  <>
+                  
+                   <td style = {{ overflowX :"auto", minWidth: "50px", maxWidth: "50px"}}><Input /*defaultValue = {row.task}*/ className = "table-input" type = "text" onChange= {(e) => setEditingText(e.target.value)} /></td>
+                  <td><select class = "edit-priority-select"  value = {editingPriority} onChange = {(e) => setEditingPriority(e.target.value)}>
+                    <option>High Priority</option>
+                    <option>Medium Priority</option>
+                    <option>Low Priority</option>
+                    </select></td>
+                  </>
+                   : 
+                   <>
+                   <td>{row.task}</td>
+                   <td style = {{ overflowX :"auto", minWidth: "50px", maxWidth: "50px"}}>{row.priority}</td>
+                   </>
+              }
+           
               <td ><DeleteButton removeItem = {removeItem} id = {row.id}></DeleteButton></td>
+
               {
                   row.id === currentlyEditing ? 
-                      <td style = {{padding: "0px",margin: "0px"}}><BsCheck size = {30} onClick = {() => saveEdit(row.id)} style = {{ cursor: 'pointer'}}></BsCheck></td> :
+                      <td style = {{padding: "0px",margin: "0px"}}><BsCheck size = {30} onClick = {() => saveEdit(row)} style = {{ cursor: 'pointer'}}></BsCheck></td> :
                       <td><FaPencilAlt size = {20} onClick = {() => setCurrentlyEditing(row.id)} style = {{ cursor: 'pointer'}}></FaPencilAlt></td>
                   }
             </tr>

@@ -24,6 +24,10 @@
 
 }
 
+.edit-priority-select { 
+  background-color:   #62464D;
+}
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.925);
@@ -122,6 +126,16 @@ td {
 }
 
 
+.edit-priority-select {
+  background-color:#420B18;
+  color:white;
+  padding: 6px 15px;
+  border: 1px solid white;
+}
+
+.edit-priority-select:focus {
+
+}
 .upper-button {
   cursor: pointer;
   background-color:#FDE3E9;
