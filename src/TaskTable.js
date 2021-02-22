@@ -52,10 +52,9 @@ const TaskTable = ({setTasks, tasks,setDeleted}) => {
       <table style = {{padding: "10px",color:"white"}} size = "medium"className="task-list" aria-label="caption table">
         <thead  style = {{color:"white"}} className = "header-row">
           <tr style = {{color:"white"}} >
-            <th style = {{minWidth: "160px"}}><strong>Task</strong></th>
-            <th style = {{minWidth: "100px"}} ><strong>Priority</strong></th>
-            <th style = {{minWidth: "60px"}}></th>
-            <th style = {{minWidth: "60px"}}></th>
+            <th style = {{minWidth:"200px"}}><strong>Task</strong></th>
+            <th style = {{minWidth: "200px"}} ><strong>Priority</strong></th>
+          
           </tr>
         </thead>
         <tbody style = {{border:"none"}}>

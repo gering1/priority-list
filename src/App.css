@@ -48,7 +48,7 @@
 
 td { 
   padding: 10px 20px;  
-  
+  text-align: center;
 }
 .upper-container {
   background-color: #FDE3E9;
@@ -84,14 +84,19 @@ td {
   border-radius: 2px;
   font-size:16px;
   padding: 13px 20px;
+  font-family: 'Mukta';
+
 }
 .task-input:focus{
   border: 1.5px solid #340D09;
   outline: none;
+  font-family: 'Mukta';
+  font-size: 16px;
 }
 
 .task-input::placeholder {
-  color:rgba(0, 0, 0, .5)
+  color:rgba(0, 0, 0, .5);
+  font-family: 'Mukta';
 
 }
 
@@ -99,17 +104,18 @@ td {
   flex:2;
   cursor: pointer;  
   background-color: #FDE3E9;
-
+  padding: 5px 10px;
   color:rgba(0, 0, 0, .8);
   border:1px solid rgba(0, 0, 0,.2);
   border-radius: 2px;
   font-size:16px;
   margin-left: 5px;
-
+  font-family: 'Mukta';
 }
 
 .priority-select:focus {
   border: 2px solid #340D09;
+
 } 
 :focus {
   outline:none;
@@ -118,11 +124,10 @@ td {
 
 .upper-button {
   cursor: pointer;
-  padding: 8px 5px; 
   background-color:#FDE3E9;
   margin: 0px 5px;
   flex:1;
-  font-size: 18px;
+  font-size: 17px;
   font-family: 'Mukta';
   border: 1px solid rgba(0, 0, 0,.2);
   border-radius: 5px;
@@ -146,13 +151,4 @@ td {
   max-width: 600px;
   max-height:450px;
   overflow-y: auto;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
