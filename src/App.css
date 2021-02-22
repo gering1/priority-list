@@ -1,0 +1,158 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  
+}
+.App {
+  height: 100vh;
+  background-color:   #62464D;
+
+  overflow-y:auto;
+  
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+  
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, .5)
+
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.925);
+  border-radius: 5px;
+  height: 10px;
+
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #490817
+
+}
+
+.task-list {
+  background-color:#420B18;
+  margin:"0px";
+  border-radius: 5px;
+  
+  
+}
+
+td { 
+  padding: 10px 20px;  
+  
+}
+.upper-container {
+  background-color: #FDE3E9;
+
+  height: 170px;
+}
+.taskbar-container {
+  
+  display:flex;
+  position:relative;
+  top: 50px;
+  justify-content: center;
+  width: 800px;
+ 
+  margin:  auto auto auto;
+  
+}
+
+.table-input {
+  background-color: #420B18;
+  color:white;
+  outline:none;
+  padding:5px 2px;
+  font-size: 15px;
+  border:1px solid white;
+}
+.task-input {
+  flex:3;
+  background-color: #FDE3E9;
+
+  color:rgba(0, 0, 0, .8);
+  border:1px solid rgba(0, 0, 0,.2);
+  border-radius: 2px;
+  font-size:16px;
+  padding: 13px 20px;
+}
+.task-input:focus{
+  border: 1.5px solid #340D09;
+  outline: none;
+}
+
+.task-input::placeholder {
+  color:rgba(0, 0, 0, .5)
+
+}
+
+.priority-select {
+  flex:2;
+  cursor: pointer;  
+  background-color: #FDE3E9;
+
+  color:rgba(0, 0, 0, .8);
+  border:1px solid rgba(0, 0, 0,.2);
+  border-radius: 2px;
+  font-size:16px;
+  margin-left: 5px;
+
+}
+
+.priority-select:focus {
+  border: 2px solid #340D09;
+} 
+:focus {
+  outline:none;
+}
+
+
+.upper-button {
+  cursor: pointer;
+  padding: 8px 5px; 
+  background-color:#FDE3E9;
+  margin: 0px 5px;
+  flex:1;
+  font-size: 18px;
+  font-family: 'Mukta';
+  border: 1px solid rgba(0, 0, 0,.2);
+  border-radius: 5px;
+}
+.upper-button:hover {
+  background-color:   #eed5db;
+}
+
+.upper-button:last-child {
+  margin-left: 0px;
+}
+.task-list-container {
+  position:relative;
+  top: 50px;
+  
+  height: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  max-width: 600px;
+  max-height:450px;
+  overflow-y: auto;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
